@@ -10,6 +10,7 @@ class _SettingsFormState extends State<SettingsForm> {
 
   final _formKey = GlobalKey<FormState>();
   final List<String> sugars = ['0', '1', '2', '3', '4'];
+  final List<int> strengths = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
   // form values
   String _currentName;
