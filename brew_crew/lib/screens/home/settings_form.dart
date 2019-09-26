@@ -9,13 +9,12 @@ class SettingsForm extends StatefulWidget {
 class _SettingsFormState extends State<SettingsForm> {
 
   final _formKey = GlobalKey<FormState>();
-  final List<int> strengths = [100, 200, 300, 400, 500, 600, 700, 800, 900];
   final List<String> sugars = ['0', '1', '2', '3', '4'];
 
   // form values
   String _currentName;
-  int _currentStrength;
   String _currentSugars;
+  int _currentStrength;
 
   @override
   Widget build(BuildContext context) {
@@ -45,16 +44,6 @@ class _SettingsFormState extends State<SettingsForm> {
               );
             }).toList(),
             onChanged: (val) => setState(() => _currentSugars = val ),
-          ),
-          SizedBox(height: 10.0),
-          Slider(
-            value: (_currentStrength ?? 100).toDouble(),
-            activeColor: Colors.brown[_currentStrength ?? 100],
-            inactiveColor: Colors.brown[_currentStrength ?? 100],
-            min: 100.0,
-            max: 900.0,
-            divisions: 8,
-            onChanged: (val) => setState(() => _currentStrength = val.round()),
           ),
           SizedBox(height: 10.0),
           RaisedButton(
