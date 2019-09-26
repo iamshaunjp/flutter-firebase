@@ -44,7 +44,7 @@ class _SettingsFormState extends State<SettingsForm> {
                 child: Text('$sugar sugars'),
               );
             }).toList(),
-            onChanged: (val) => setState(() => _currentSugars = val ),s
+            onChanged: (val) => setState(() => _currentSugars = val ),
           ),
           SizedBox(height: 10.0),
           Slider(
