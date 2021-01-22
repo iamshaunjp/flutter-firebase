@@ -1,4 +1,5 @@
 import 'package:brew_crew/models/brew.dart';
+import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:flutter/material.dart';
 
 class BrewTile extends StatelessWidget {
@@ -20,6 +21,20 @@ class BrewTile extends StatelessWidget {
           ),
           title: Text(brew.name),
           subtitle: Text('Takes ${brew.sugars} sugar(s)'),
+          trailing: StreamBuilder(
+            stream: DataConnectionChecker().onStatusChange,
+            builder: (context, snapshot) {
+              if (snapshot.data == DataConnectionStatus.connected){
+              return Icon(Icons.lens,
+              color: Colors.green,);
+              }else if (snapshot.data == DataConnectionStatus.disconnected){
+                return Icon(Icons.lens,
+              color: Colors.red,);
+              }else
+              return Icon(Icons.lens,
+              color: Colors.grey,);
+            }
+          ),
         ),
       ),
     );
